@@ -1,4 +1,6 @@
-const Acceleration = ({ M, data, formatter }) => {
+import { formatter } from "../lib/helpers";
+
+const Acceleration = ({ M, data }) => {
     
     return(
         <table className="table table-striped table-sm">
