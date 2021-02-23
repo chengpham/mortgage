@@ -1,6 +1,6 @@
 import { Rates } from '../requests';
 import { useState, useEffect } from 'react';
-import { timeAgo, mapTime } from "./mapTime"
+import { timeAgo } from '../lib/helpers';
 
 const Options = () => {
     const [rate, setRate] = useState([])
@@ -30,7 +30,7 @@ const Options = () => {
                         <td>{data.fiveYearVariable+"%"}</td>
                         <td>{data.fiveYearFixed+"%"}</td>
                         <td>{data.threeYearFixed+"%"}</td>
-                        <td>{`${new Date(data.updated).toLocaleString()} - ${timeAgo(data.updated)}`}</td>
+                        <td>{timeAgo(data.updated)}</td>
                     </tr>
                 )
             })}

@@ -1,13 +1,13 @@
-import './App.css';
+import './App.css'
 import MortgageCalculator from './components/MortgageCalculator'
 
 const App = () => {
-
-  return(
+  return (
     <div className='app container p-2'>
-    <MortgageCalculator />
+      
+      <MortgageCalculator />
     </div>
   )
 }
 
-export default App;
+export default App

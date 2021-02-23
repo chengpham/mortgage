@@ -1,6 +1,6 @@
-import {formatter} from '../lib/helpers'
+import { formatter } from "../lib/helpers";
 
-const Acceleration = ({ M, data }) => {
+const Acceleration = ({ payments, data }) => {
     
     return(
         <table className="table table-striped table-sm">
@@ -19,7 +19,7 @@ const Acceleration = ({ M, data }) => {
                     return (
                         <tr key={i} style={{ backgroundColor: "#ffa" }} >
                             <td><strong>{data.name}</strong></td>
-                            <td><strong>{formatter.format(M)}</strong></td>
+                            <td><strong>{formatter.format(payments)}</strong></td>
                             <td><strong>{formatter.format(data.principle)}</strong></td>
                             <td><strong>{formatter.format(data.interest)}</strong></td>
                             <td><strong>{formatter.format(data.balance)}</strong></td>
@@ -29,7 +29,7 @@ const Acceleration = ({ M, data }) => {
                     return (
                         <tr key={i}>
                             <td>{data.name}</td>
-                            <td>{formatter.format(M)}</td>
+                            <td>{formatter.format(payments)}</td>
                             <td>{formatter.format(data.principle)}</td>
                             <td>{formatter.format(data.interest)}</td>
                             <td>{formatter.format(data.balance)}</td>
