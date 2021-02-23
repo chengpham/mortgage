@@ -1,4 +1,6 @@
-const Summary = ({ M, T, totalInterest, formatter, schedule, setSchedule, acceleration, setAcceleration, options, setOptions }) => {
+import {formatter} from '../lib/helpers'
+
+const Summary = ({ M, T, totalInterest, schedule, setSchedule, acceleration, setAcceleration, options, setOptions }) => {
    
     return(
        <div className='card-header border-top container p-1 my-2'>

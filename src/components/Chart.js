@@ -1,6 +1,7 @@
 import { AreaChart, Area, YAxis, XAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { formatter } from '../lib/helpers';
 
-const Chart = ({ data, formatter })=> {
+const Chart = ({ data })=> {
     return (
         <div className='chart card p-2 my-3'>
         <ResponsiveContainer width="100%" height="100%">

@@ -1,4 +1,6 @@
-const Schedule = ({ M, data, formatter }) => {
+import {formatter} from '../lib/helpers'
+
+const Schedule = ({ M, data }) => {
     
     return(
         <table className="table table-striped table-sm">
