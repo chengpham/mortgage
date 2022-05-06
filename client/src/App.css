@@ -1,0 +1,19 @@
+.app {
+  text-align: center;
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 50px 0;
+}
+.chart{
+  width: 100%;
+  height: 400px;
+}
+.heighttext{
+  height:30px !important;
+}
+tr:hover {
+  background-color: #B4D5FE !important;
+}

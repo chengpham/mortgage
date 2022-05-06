@@ -1,0 +1,56 @@
+service: mortgage-api
+
+plugins:
+  - serverless-offline
+
+custom:
+  tableName: 'rates-table-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate: true
+  serverless-offline:
+    noPrependStageInUrl: true
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ca-central-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn::GetAtt": ["RatesDynamoDBTable", "Arn" ] }
+  environment:
+    RATES_TABLE: ${self:custom.tableName}
+  apiGateway: 
+    shouldStartNameWithService: true
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY /{proxy+}'
+
+resources:
+  Resources:
+    RatesDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: rateId
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: rateId
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:custom.tableName}
